@@ -9,9 +9,10 @@ namespace DataExcel
 {
     internal class Start
     {
+        static int quantMemoriaNaoDisponivel = 0;
         public static void Startting() 
         {
-            var xlsx = new XLWorkbook(@"C:\Users\sedin\Desktop\Teste.xlsx");
+            var xlsx = new XLWorkbook(@"C:\Users\sedin\Desktop\Computador.xlsx");
             var planilha = xlsx.Worksheets.First(x => x.Name == "Planilha1");
             var totalL = 40;
             int linhaAtual = 45;
@@ -19,7 +20,7 @@ namespace DataExcel
             Console.Title = "Excell VENDAS";
             //Console.BackgroundColor = ConsoleColor.Red;
             int quantMemoriaDisponivel = 0;
-            int quantMemoriaNaoDisponivel = 0;
+            
             float maiorValorCompra = 0;
 
             //inicializar variaveis
@@ -66,13 +67,16 @@ namespace DataExcel
                     {
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.BackgroundColor = ConsoleColor.DarkMagenta;
-                        quantMemoriaDisponivel += 1;   
+                        //quantMemoriaDisponivel += 1;   
+                        quantMemoriaDisponivel++;
                     }
                     if (result == 0)
                     {
                         //Console.ResetColor();
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.BackgroundColor = ConsoleColor.DarkBlue;
+
+                        //TODO criar funcao propria
                         quantMemoriaNaoDisponivel += 1;
                     }
                     //Console.ResetColor();

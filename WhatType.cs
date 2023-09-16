@@ -21,5 +21,10 @@ namespace DataExcel
             return result;
         }
 
+        public static int AddOne(int value)
+        {
+            return value + 1;
+        }
+
     }
 }
